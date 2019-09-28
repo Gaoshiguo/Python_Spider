@@ -30,4 +30,21 @@ if __name__ == "__main__":
 	texts = bf.find_all('div', class_ = 'showtxt') 
 	print(texts)
 ```
-![image]!(https://github.com/Gaoshiguo/Python_Spider/blob/master/image/6.png)
+![image](https://github.com/Gaoshiguo/Python_Spider/blob/master/image/6.png)
+可以看到我们熟悉的内容了
+然后我们只需要这些文字，其中的一些`<br><\br>`标签和空格并不是我们所需要的。所以我们需要通过beautifuisoup库来进行删选。
+使用replace方法，剔除空格，替换为回车进行分段。 在html中是用来表示空格的。replace(’\xa0’*8,’\n\n’)就是去掉下图的八个空格符号，并用回车代替
+```python
+# -*- coding:UTF-8 -*-
+from bs4 import BeautifulSoup
+import requests
+if __name__ == "__main__":
+     target = 'http://www.biqukan.com/1_1094/5403177.html'
+     req = requests.get(url = target) html = req.text
+     bf = BeautifulSoup(html)
+     texts = bf.find_all('div', class_ = 'showtxt')
+     print(texts[0].text.replace('\xa0'*8,'\n\n'))
+```
+
+![image](https://github.com/Gaoshiguo/Python_Spider/blob/master/image/7.png)
+可以看到已经提取出网页中的文字了
