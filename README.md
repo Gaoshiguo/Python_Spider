@@ -74,3 +74,5 @@ for each in a:
 	print(each.string, server + each.get('href'))
 ```
 ![image](https://github.com/Gaoshiguo/Python_Spider/blob/master/image/10.png)
+现在我们每一章的链接有了，每一章的名字也有了，爬取每一章的文本内容的代码也有了，接下来就是整合一下了，然后写入到一个txt文档里，就完成了爬取。
+完整代码如下：
