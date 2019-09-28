@@ -48,3 +48,7 @@ if __name__ == "__main__":
 
 ![image](https://github.com/Gaoshiguo/Python_Spider/blob/master/image/7.png)
 可以看到已经提取出网页中的文字了
+
+现在看我们学会提取某一章的文字了，然后我们需要提取出每一章的链接，然后顺着这每一个链接爬取每一个链接的文字，这样就完成了正本电子书的下载了。
+我们进入这本书的目录页，查看目录的网页结构
+![image](https://github.com/Gaoshiguo/Python_Spider/blob/master/image/8.png)
