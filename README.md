@@ -16,3 +16,18 @@ if __name__ == "__main__":
 [!image](https://github.com/Gaoshiguo/Python_Spider/blob/master/image/5.png)
 这是第一次跑的结果，好像跟大神的不一样，上面一部分英文说的是什么warning，应该是警告什么的，下面一部分全是乱码，百度了一下，说警告是由于没有为`beautifulsoup`指定解析器，下面的乱码是因为没有设置好编码。
 解决办法是：在`bf = BeautifulSoup(html)`这句括号里添加解析器`'html.parser'`
+更改后的代码为：
+```python
+# -*- coding:UTF-8 -*-
+from bs4 import BeautifulSoup
+import requests
+if __name__ == "__main__":
+	target = 'http://www.biqukan.com/1_1094/5403177.html'
+	req = requests.get(url = target)
+	req.encoding=req.apparent_encoding
+	html = req.text
+	bf = BeautifulSoup(html,'html.parser')
+	texts = bf.find_all('div', class_ = 'showtxt') 
+	print(texts)
+```
+[!image](https://github.com/Gaoshiguo/Python_Spider/blob/master/image/6.png)
