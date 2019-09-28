@@ -65,3 +65,12 @@ if __name__ == "__main__":
      div = div_bf.find_all('div', class_ = 'listmain')
      print(div[0])
 ```
+![image](https://github.com/Gaoshiguo/Python_Spider/blob/master/image/9.png)
+我们可以看见每一个章节的链接都位于a标签之中，因此我们需要使用beautifulsoup提取其中所有的a标签
+```python
+hr=BeautifulSoup(str(con[0]))
+a=hr.find_all('a')
+for each in a:
+	print(each.string, server + each.get('href'))
+```
+![image](https://github.com/Gaoshiguo/Python_Spider/blob/master/image/10.png)
